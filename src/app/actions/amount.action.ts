@@ -1,9 +1,11 @@
 import { Action } from "@ngrx/store";
 
-export const AMOUNTCHANGE = '[Amount] Change';
+export enum AmountActionTypes {
+    AMOUNTCHANGE = '[Amount] Change',
+}
 
 export class AmountChangeAction implements Action {
-    type = AMOUNTCHANGE;
+    type = AmountActionTypes.AMOUNTCHANGE;
 
     constructor(public payload: number) {}
 }

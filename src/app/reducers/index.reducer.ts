@@ -1,14 +1,9 @@
-import { Action, ActionReducerMap, State } from '@ngrx/store'
-import { Currency } from '../models/currency.model'
-import { amountReducer } from './amount.reducer'
-import { currencyReducer } from './currency.reducer'
+import { ActionReducerMap } from '@ngrx/store';
+import { amountReducer } from './amount.reducer';
+import { currencyReducer } from './currency.reducer';
+import { AppState } from '../states/app.state';
 
-export interface AppState {
-  amount: number;
-  currencies: Currency[];
-}
-
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<AppState, any> = {
     amount: amountReducer,
     currencies: currencyReducer
 }

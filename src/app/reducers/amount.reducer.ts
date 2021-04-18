@@ -1,10 +1,15 @@
 import { ActionReducer, Action, State } from '@ngrx/store';
-import * as amount from '../actions/amount.action';
+import { AmountActionTypes, AmountChangeAction } from '../actions/amount.action';
+import { AmountState, initialAmountState } from '../states/amount.state';
 
-export function amountReducer(state: number = 1, action: amount.AmountChangeAction) {
+export function amountReducer(
+    state: AmountState = initialAmountState, 
+    action: AmountChangeAction
+) {
     switch(action.type) {
-        case amount.AMOUNTCHANGE:
-            return action.payload;
+        case AmountActionTypes.AMOUNTCHANGE:
+            return { amount: action.payload };
+            break;
         default:
             return state;
     }

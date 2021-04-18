@@ -1,10 +1,12 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import * as currency from '../actions/currency.action';
+import { CurrencyActionTypes, CurrenciesUpdatedAction } from '../actions/currency.action';
+import { CurrencyState, initialCurrencyState } from '../states/currency.state';
 
-export function currencyReducer(state = [], action: currency.CurrenciesUpdatedAction) {
+export function currencyReducer(state: CurrencyState = initialCurrencyState, action: CurrenciesUpdatedAction) {
     switch(action.type) {
-        case currency.CURRENCIESUPDATED:
-            return action.payload;
+        case CurrencyActionTypes.CURRENCIESUPDATED:
+            //return action.payload;
+            return { currencies: action.payload };
         default:
             return state;
     }

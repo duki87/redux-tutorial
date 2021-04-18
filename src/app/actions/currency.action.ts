@@ -1,15 +1,17 @@
 import { Action } from "@ngrx/store";
 import { Currency } from "../models/currency.model";
 
-export const CURRENCIESUPDATE = '[Currency] UpdateAll';
-export const CURRENCIESUPDATED = '[Currency] UpdatedAll';
+export enum CurrencyActionTypes {
+    CURRENCIESUPDATE = '[Currency] UpdateAll',
+    CURRENCIESUPDATED = '[Currency] UpdatedAll'
+}
 
 export class CurrenciesUpdateAction implements Action {
-    type = CURRENCIESUPDATE;
+    type = CurrencyActionTypes.CURRENCIESUPDATE;
 }
 
 export class CurrenciesUpdatedAction implements Action {
-    type = CURRENCIESUPDATED;
+    type = CurrencyActionTypes.CURRENCIESUPDATED;
 
     constructor(public payload: Currency[]) {}
 }
